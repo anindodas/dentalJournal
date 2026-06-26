@@ -1,0 +1,30 @@
+# DentalJournal.online
+
+> DentalJournal.online is a dental health blog publishing practical oral care articles, tips, and expert advice for everyday readers.
+
+DentalJournal.online is not a peer-reviewed research journal. We publish patient-friendly blog articles about dental health, oral hygiene, and dentistry topics written for general audiences.
+
+## Main pages
+
+- Home: https://dentaljournal.online/
+- Articles: https://dentaljournal.online/blog
+- About: https://dentaljournal.online/about
+- Contact: https://dentaljournal.online/contact
+- Write for Us: https://dentaljournal.online/write-for-us
+
+## Content focus
+
+- Oral health and hygiene tips
+- Dental care guides for patients and families
+- Expert commentary on common dental questions
+- Practical advice from dentists and hygienists
+
+## Contact
+
+- Email: hello@dentaljournal.online
+- Website: https://dentaljournal.online
+
+## Optional
+
+- Sitemap: https://dentaljournal.online/sitemap.xml
+- Robots: https://dentaljournal.online/robots.txt

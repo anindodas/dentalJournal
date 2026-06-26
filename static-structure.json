@@ -1,0 +1,312 @@
+[
+  {
+    "tag": "A",
+    "text": "DentalJournal.online",
+    "className": "font-serif text-2xl sm:text-3xl font-semibold tracking-tight text-foreground"
+  },
+  {
+    "tag": "A",
+    "text": "Research",
+    "className": "text-sm tracking-wide text-foreground/70 hover:text-[hsl(var(--primary))] transition-colors"
+  },
+  {
+    "tag": "A",
+    "text": "Studies",
+    "className": "text-sm tracking-wide text-foreground/70 hover:text-[hsl(var(--primary))] transition-colors"
+  },
+  {
+    "tag": "A",
+    "text": "Clinics",
+    "className": "text-sm tracking-wide text-foreground/70 hover:text-[hsl(var(--primary))] transition-colors"
+  },
+  {
+    "tag": "A",
+    "text": "About",
+    "className": "text-sm tracking-wide text-foreground/70 hover:text-[hsl(var(--primary))] transition-colors"
+  },
+  {
+    "tag": "A",
+    "text": "Subscribe→",
+    "className": "inline-flex items-center gap-2 rounded-full bg-[hsl(var(--primary))] text-white px-5 py-2.5 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+  },
+  {
+    "tag": "H1",
+    "text": "The quiet revolutioninside modern dentistry.",
+    "className": "font-serif text-5xl sm:text-6xl lg:text-[5.5rem] xl:text-[6.5rem] leading-[0.95] tracking-tight font-medium text-balance text-foreground"
+  },
+  {
+    "tag": "P",
+    "text": "Independent reporting, clinical research, and field stories from the world's most thoughtful dental ",
+    "className": "mt-8 lg:mt-10 text-lg sm:text-xl text-foreground/70 max-w-xl leading-relaxed"
+  },
+  {
+    "tag": "A",
+    "text": "Read the latest issue→",
+    "className": "inline-flex items-center gap-2 rounded-full bg-[hsl(var(--primary))] text-white px-7 py-3.5 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
+  },
+  {
+    "tag": "A",
+    "text": "Subscribe — it's free",
+    "className": "inline-flex items-center gap-2 rounded-full border border-foreground/15 px-7 py-3.5 text-sm font-medium text-foreground/80 hover:border-[hsl(var(--primary))] hover:text-[hsl(var(--primary))] transition-all duration-300"
+  },
+  {
+    "tag": "P",
+    "text": "On the cover",
+    "className": "text-[10px] uppercase tracking-[0.28em] text-white/80"
+  },
+  {
+    "tag": "P",
+    "text": "The future of diagnostic precision",
+    "className": "font-serif text-2xl leading-tight mt-2"
+  },
+  {
+    "tag": "P",
+    "text": "\"We are no longer practicing alone. The algorithm has joined the operatory.\"",
+    "className": "font-serif italic text-foreground/80 leading-snug"
+  },
+  {
+    "tag": "P",
+    "text": "Dr. Helena Marquez — Lead, AI Diagnostics Lab",
+    "className": "mt-3 text-xs uppercase tracking-[0.2em] text-foreground/50"
+  },
+  {
+    "tag": "P",
+    "text": "Featuring research & insights affiliated with",
+    "className": "text-center text-[11px] sm:text-xs uppercase tracking-[0.32em] text-foreground/55 font-medium"
+  },
+  {
+    "tag": "P",
+    "text": "Trending Studies",
+    "className": "text-xs uppercase tracking-[0.28em] text-[hsl(var(--primary))] font-semibold"
+  },
+  {
+    "tag": "H2",
+    "text": "The research clinicians are reading this week.",
+    "className": "font-serif text-4xl sm:text-5xl lg:text-6xl tracking-tight mt-3 leading-[1.05]"
+  },
+  {
+    "tag": "A",
+    "text": "01ResearchAI-Powered Caries Detection Outperforms Clinicians14 institutions · 9 countriesn = 122,000",
+    "className": "group grid grid-cols-12 gap-4 sm:gap-8 items-baseline py-7 sm:py-9"
+  },
+  {
+    "tag": "P",
+    "text": "Research",
+    "className": "text-[10px] sm:text-xs uppercase tracking-[0.24em] text-foreground/55 mb-2"
+  },
+  {
+    "tag": "H3",
+    "text": "AI-Powered Caries Detection Outperforms Clinicians",
+    "className": "font-serif text-2xl sm:text-3xl lg:text-4xl leading-tight tracking-tight text-foreground group-hover:text-[hsl(var(--primary))] transition-colors"
+  },
+  {
+    "tag": "A",
+    "text": "02Meta-analysisPeriodontitis and Systemic Disease: 2025 Evidence UpdateEFP Working Group412 studies",
+    "className": "group grid grid-cols-12 gap-4 sm:gap-8 items-baseline py-7 sm:py-9"
+  },
+  {
+    "tag": "P",
+    "text": "Meta-analysis",
+    "className": "text-[10px] sm:text-xs uppercase tracking-[0.24em] text-foreground/55 mb-2"
+  },
+  {
+    "tag": "H3",
+    "text": "Periodontitis and Systemic Disease: 2025 Evidence Update",
+    "className": "font-serif text-2xl sm:text-3xl lg:text-4xl leading-tight tracking-tight text-foreground group-hover:text-[hsl(var(--primary))] transition-colors"
+  },
+  {
+    "tag": "A",
+    "text": "03Clinical TrialDigital vs. Traditional Impressions — 3-Year Outcomes38 practices · multi-centern = ",
+    "className": "group grid grid-cols-12 gap-4 sm:gap-8 items-baseline py-7 sm:py-9"
+  },
+  {
+    "tag": "P",
+    "text": "Clinical Trial",
+    "className": "text-[10px] sm:text-xs uppercase tracking-[0.24em] text-foreground/55 mb-2"
+  },
+  {
+    "tag": "H3",
+    "text": "Digital vs. Traditional Impressions — 3-Year Outcomes",
+    "className": "font-serif text-2xl sm:text-3xl lg:text-4xl leading-tight tracking-tight text-foreground group-hover:text-[hsl(var(--primary))] transition-colors"
+  },
+  {
+    "tag": "A",
+    "text": "04MicrobiologyThe Oral Microbiome as a Predictor of Caries RiskKarolinska · UCLn = 2,800",
+    "className": "group grid grid-cols-12 gap-4 sm:gap-8 items-baseline py-7 sm:py-9"
+  },
+  {
+    "tag": "P",
+    "text": "Microbiology",
+    "className": "text-[10px] sm:text-xs uppercase tracking-[0.24em] text-foreground/55 mb-2"
+  },
+  {
+    "tag": "H3",
+    "text": "The Oral Microbiome as a Predictor of Caries Risk",
+    "className": "font-serif text-2xl sm:text-3xl lg:text-4xl leading-tight tracking-tight text-foreground group-hover:text-[hsl(var(--primary))] transition-colors"
+  },
+  {
+    "tag": "P",
+    "text": "Clinic Spotlights",
+    "className": "text-xs uppercase tracking-[0.28em] text-[hsl(var(--primary))] font-semibold"
+  },
+  {
+    "tag": "H2",
+    "text": "Practices reimagining what dentistry feels like.",
+    "className": "font-serif text-4xl sm:text-5xl lg:text-6xl tracking-tight mt-3 leading-[1.05] max-w-2xl"
+  },
+  {
+    "tag": "P",
+    "text": "Field-reported, on-the-ground stories from the operators rewriting the modern practice — from Copenh",
+    "className": "text-foreground/65 max-w-sm leading-relaxed"
+  },
+  {
+    "tag": "A",
+    "text": "Copenhagen, DenmarkMaren DentalA clinic that treats the waiting room as the first instrument of care",
+    "className": "group block h-full"
+  },
+  {
+    "tag": "H3",
+    "text": "Maren Dental",
+    "className": "font-serif text-3xl lg:text-4xl mt-2 leading-tight"
+  },
+  {
+    "tag": "P",
+    "text": "A clinic that treats the waiting room as the first instrument of care — soft northern light, no fron",
+    "className": "text-foreground/70 leading-relaxed"
+  },
+  {
+    "tag": "A",
+    "text": "Rural Karnataka, IndiaSmileBridge Field UnitSolar-powered mobile dentistry reaching 14,000 patients ",
+    "className": "group block h-full"
+  },
+  {
+    "tag": "H3",
+    "text": "SmileBridge Field Unit",
+    "className": "font-serif text-3xl lg:text-4xl mt-2 leading-tight"
+  },
+  {
+    "tag": "P",
+    "text": "Solar-powered mobile dentistry reaching 14,000 patients a year across 280 villages.",
+    "className": "text-foreground/70 leading-relaxed"
+  },
+  {
+    "tag": "A",
+    "text": "Tokyo, JapanKawasaki Implant StudioA fully digital workflow practice where intraoral scans, CBCT and",
+    "className": "group block h-full"
+  },
+  {
+    "tag": "H3",
+    "text": "Kawasaki Implant Studio",
+    "className": "font-serif text-3xl lg:text-4xl mt-2 leading-tight"
+  },
+  {
+    "tag": "P",
+    "text": "A fully digital workflow practice where intraoral scans, CBCT and chairside milling converge in 90 m",
+    "className": "text-foreground/70 leading-relaxed"
+  },
+  {
+    "tag": "P",
+    "text": "The DentalJournal Dispatch",
+    "className": "text-xs uppercase tracking-[0.32em] text-[hsl(var(--primary))] font-semibold"
+  },
+  {
+    "tag": "H2",
+    "text": "One careful issue. Every Sunday.",
+    "className": "font-serif text-4xl sm:text-5xl lg:text-6xl tracking-tight mt-5 leading-[1.05] text-balance"
+  },
+  {
+    "tag": "P",
+    "text": "The most considered writing on dental research, clinic craft, and the quiet shifts inside the profes",
+    "className": "mt-6 text-lg text-foreground/70 leading-relaxed max-w-xl mx-auto"
+  },
+  {
+    "tag": "BUTTON",
+    "text": "Subscribe",
+    "className": "rounded-full bg-[hsl(var(--primary))] text-white px-8 py-4 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl disabled:opacity-60 disabled:cursor-not-allowed"
+  },
+  {
+    "tag": "P",
+    "text": "No spam. Unsubscribe in one click. We respect your inbox.",
+    "className": "mt-5 text-xs text-foreground/50"
+  },
+  {
+    "tag": "P",
+    "text": "DentalJournal.online",
+    "className": "font-serif text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight"
+  },
+  {
+    "tag": "P",
+    "text": "Independent journalism, peer-aware research, and field stories from the practice of modern dentistry",
+    "className": "mt-6 max-w-md text-white/55 leading-relaxed"
+  },
+  {
+    "tag": "P",
+    "text": "Read",
+    "className": "text-[11px] uppercase tracking-[0.28em] text-white/45 mb-4"
+  },
+  {
+    "tag": "A",
+    "text": "Editor's Picks",
+    "className": "hover:text-white transition-colors"
+  },
+  {
+    "tag": "A",
+    "text": "Studies",
+    "className": "hover:text-white transition-colors"
+  },
+  {
+    "tag": "A",
+    "text": "Clinics",
+    "className": "hover:text-white transition-colors"
+  },
+  {
+    "tag": "P",
+    "text": "Journal",
+    "className": "text-[11px] uppercase tracking-[0.28em] text-white/45 mb-4"
+  },
+  {
+    "tag": "A",
+    "text": "About",
+    "className": "hover:text-white transition-colors"
+  },
+  {
+    "tag": "A",
+    "text": "Contributors",
+    "className": "hover:text-white transition-colors"
+  },
+  {
+    "tag": "A",
+    "text": "Editorial Policy",
+    "className": "hover:text-white transition-colors"
+  },
+  {
+    "tag": "P",
+    "text": "Contact",
+    "className": "text-[11px] uppercase tracking-[0.28em] text-white/45 mb-4"
+  },
+  {
+    "tag": "A",
+    "text": "Submit a story",
+    "className": "hover:text-white transition-colors"
+  },
+  {
+    "tag": "A",
+    "text": "Press",
+    "className": "hover:text-white transition-colors"
+  },
+  {
+    "tag": "A",
+    "text": "hello@dentaljournal.online",
+    "className": "hover:text-white transition-colors"
+  },
+  {
+    "tag": "P",
+    "text": "© 2026 DentalJournal.Online — All rights reserved.",
+    "className": ""
+  },
+  {
+    "tag": "P",
+    "text": "Issue № 47 · Printed in pixels with care.",
+    "className": ""
+  }
+]

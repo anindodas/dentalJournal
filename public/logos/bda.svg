@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 40" role="img" aria-label="BDA">
+  <rect x="2" y="6" width="36" height="28" rx="3" fill="#005EB8"/>
+  <text x="20" y="26" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#fff">BDA</text>
+  <text x="44" y="16" font-family="Arial, Helvetica, sans-serif" font-size="7" font-weight="600" fill="#333">British</text>
+  <text x="44" y="24" font-family="Arial, Helvetica, sans-serif" font-size="7" font-weight="600" fill="#333">Dental</text>
+  <text x="44" y="32" font-family="Arial, Helvetica, sans-serif" font-size="7" font-weight="600" fill="#333">Association</text>
+</svg>
