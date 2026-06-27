@@ -19,17 +19,19 @@ export default function LogoGrid({
           <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-background to-transparent sm:w-24" />
           <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-background to-transparent sm:w-24" />
 
-          <div className="marquee-track flex w-max items-center gap-x-10 sm:gap-x-14">
+          <div className="marquee-track flex w-max items-center" style={{ gap: "3.5rem" }}>
             {[...logos, ...logos, ...logos, ...logos].map((logo, i) => (
               <div
                 key={`${logo.name}-${i}`}
-                className="flex h-10 w-28 shrink-0 items-center justify-center sm:h-12 sm:w-32"
+                className="shrink-0 flex items-center justify-center"
+                style={{ height: "48px", width: "130px" }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={logo.src}
                   alt={logo.name}
-                  className="h-full w-full object-contain opacity-60 grayscale transition hover:opacity-100 hover:grayscale-0"
+                  style={{ height: "100%", width: "100%", objectFit: "contain" }}
+                  className="opacity-60 grayscale transition hover:opacity-100 hover:grayscale-0"
                   loading="lazy"
                 />
               </div>
@@ -45,17 +47,19 @@ export default function LogoGrid({
       <p className="mb-10 text-center text-[11px] font-medium uppercase tracking-[0.32em] text-foreground/55 sm:text-xs">
         {label}
       </p>
-      <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-16 gap-y-6 px-6 sm:gap-x-20">
+      <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center px-6" style={{ gap: "3rem 4rem" }}>
         {logos.map((logo) => (
           <div
             key={logo.name}
-            className="flex h-14 w-36 shrink-0 items-center justify-center sm:h-16 sm:w-44"
+            className="shrink-0 flex items-center justify-center"
+            style={{ height: "60px", width: "180px" }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={logo.src}
               alt={logo.name}
-              className="h-full w-full object-contain opacity-60 grayscale transition hover:opacity-100 hover:grayscale-0"
+              style={{ height: "100%", width: "100%", objectFit: "contain" }}
+              className="opacity-60 grayscale transition hover:opacity-100 hover:grayscale-0"
               loading="lazy"
             />
           </div>
