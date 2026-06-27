@@ -21,6 +21,7 @@ export const staticPages = [
   { path: "/about", priority: 0.7, changeFrequency: "monthly" as const },
   { path: "/contact", priority: 0.6, changeFrequency: "monthly" as const },
   { path: "/write-for-us", priority: 0.7, changeFrequency: "monthly" as const },
+  { path: "/faq", priority: 0.5, changeFrequency: "monthly" as const },
   { path: "/privacy", priority: 0.3, changeFrequency: "monthly" as const },
   { path: "/terms", priority: 0.3, changeFrequency: "monthly" as const },
 ];
@@ -58,6 +59,12 @@ export const defaultPageSeo: Record<
     description:
       "Contribute dental health articles to DentalJournal.online. Submit your story idea and join our writer community.",
     keywords: "write for us dental, guest post dentistry",
+  },
+  "/faq": {
+    title: "Frequently Asked Questions | DentalJournal.online",
+    description:
+      "Find answers to common questions about dental care routines, article contributions, and medical disclaimers.",
+    keywords: "dental faq, oral health questions, dentist faq",
   },
   "/privacy": {
     title: "Privacy Policy | DentalJournal.online",

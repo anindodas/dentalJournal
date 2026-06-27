@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, webPageJsonLd } from "@/lib/seo";
 import { getPublishedPosts } from "@/lib/queries";
 import PostCard from "@/components/PostCard";
 import { getDisplayReads } from "@/lib/reads";
@@ -16,8 +16,19 @@ export default async function BlogPage() {
     // tables may not exist yet
   }
 
+  const jsonLd = webPageJsonLd(
+    "/blog",
+    "Articles | DentalJournal.online",
+    "Browse our latest dental health articles, oral hygiene guides, and expert dental advice."
+  );
+
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-16 xl:px-32">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-16 xl:px-32">
       <div className="mb-12 max-w-2xl">
         <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary">
           Articles
@@ -52,5 +63,6 @@ export default async function BlogPage() {
         </div>
       )}
     </div>
+    </>
   );
 }

@@ -15,6 +15,9 @@ export type PostInput = {
   meta_keywords?: string | null;
   reads?: number;
   reads_per_day?: number;
+  published_at?: string | null;
+  has_toc?: boolean;
+  faqs?: { question: string; answer: string }[];
 };
 
 function mapPost(row: any): Post {
@@ -24,6 +27,8 @@ function mapPost(row: any): Post {
     reads: row.reads ?? 0,
     reads_per_day: row.reads_per_day ?? 12,
     reads_started_at: row.reads_started_at ?? null,
+    has_toc: row.has_toc ?? true,
+    faqs: row.faqs ?? [],
   };
 }
 
@@ -101,24 +106,33 @@ export async function createPost(input: PostInput & { slug: string }): Promise<P
     meta_title: input.meta_title ?? null,
     meta_description: input.meta_description ?? null,
     meta_keywords: input.meta_keywords ?? null,
-    published_at: input.published ? new Date().toISOString() : null,
+    published_at: input.published_at !== undefined ? input.published_at : (input.published ? new Date().toISOString() : null),
     updated_at: new Date().toISOString(),
+  };
+
+  const fullInsert = {
+    ...baseInsert,
+    reads: input.reads ?? 0,
+    reads_per_day: input.reads_per_day ?? 12,
+    reads_started_at: new Date().toISOString(),
+    has_toc: input.has_toc ?? true,
+    faqs: input.faqs ?? [],
   };
 
   try {
     const { data, error } = await supabase
       .from("posts")
-      .insert({
-        ...baseInsert,
-        reads: input.reads ?? 0,
-        reads_per_day: input.reads_per_day ?? 12,
-        reads_started_at: new Date().toISOString(),
-      })
+      .insert(fullInsert)
       .select()
       .single();
     if (error) {
-      if (error.code === "42703" || error.message?.includes("reads")) {
-        console.warn("reads columns missing in Supabase, retrying insert without them...");
+      if (
+        error.code === "42703" ||
+        error.message?.includes("reads") ||
+        error.message?.includes("toc") ||
+        error.message?.includes("faq")
+      ) {
+        console.warn("Newer columns missing in Supabase, retrying insert without them...");
         const { data: retryData, error: retryError } = await supabase
           .from("posts")
           .insert(baseInsert)
@@ -131,7 +145,12 @@ export async function createPost(input: PostInput & { slug: string }): Promise<P
     }
     return mapPost(data);
   } catch (err: any) {
-    if (err.code === "42703" || err.message?.includes("reads")) {
+    if (
+      err.code === "42703" ||
+      err.message?.includes("reads") ||
+      err.message?.includes("toc") ||
+      err.message?.includes("faq")
+    ) {
       const { data, error } = await supabase
         .from("posts")
         .insert(baseInsert)
@@ -152,11 +171,12 @@ export async function updatePost(id: string, input: Partial<PostInput & { slug: 
     ...input,
     updated_at: new Date().toISOString(),
   };
-  if (input.published === true && existing && !existing.published) {
+
+  if (input.published === true && existing && !existing.published && !input.published_at) {
     baseUpdate.published_at = new Date().toISOString();
   }
 
-  // Extract reads columns to only send them if they are supported
+  // Extract reads, has_toc, and faqs to only send them if they are supported
   const readsUpdate: Record<string, any> = {};
   if (input.reads !== undefined) {
     readsUpdate.reads = input.reads;
@@ -165,10 +185,18 @@ export async function updatePost(id: string, input: Partial<PostInput & { slug: 
   if (input.reads_per_day !== undefined) {
     readsUpdate.reads_per_day = input.reads_per_day;
   }
+  if (input.has_toc !== undefined) {
+    readsUpdate.has_toc = input.has_toc;
+  }
+  if (input.faqs !== undefined) {
+    readsUpdate.faqs = input.faqs;
+  }
 
   delete baseUpdate.reads;
   delete baseUpdate.reads_per_day;
   delete baseUpdate.reads_started_at;
+  delete baseUpdate.has_toc;
+  delete baseUpdate.faqs;
 
   const fullUpdate = {
     ...baseUpdate,
@@ -183,8 +211,13 @@ export async function updatePost(id: string, input: Partial<PostInput & { slug: 
       .select()
       .single();
     if (error) {
-      if (error.code === "42703" || error.message?.includes("reads")) {
-        console.warn("reads columns missing in Supabase, retrying update without them...");
+      if (
+        error.code === "42703" ||
+        error.message?.includes("reads") ||
+        error.message?.includes("toc") ||
+        error.message?.includes("faq")
+      ) {
+        console.warn("Newer columns missing in Supabase, retrying update without them...");
         const { data: retryData, error: retryError } = await supabase
           .from("posts")
           .update(baseUpdate)
@@ -198,7 +231,12 @@ export async function updatePost(id: string, input: Partial<PostInput & { slug: 
     }
     return mapPost(data);
   } catch (err: any) {
-    if (err.code === "42703" || err.message?.includes("reads")) {
+    if (
+      err.code === "42703" ||
+      err.message?.includes("reads") ||
+      err.message?.includes("toc") ||
+      err.message?.includes("faq")
+    ) {
       const { data, error } = await supabase
         .from("posts")
         .update(baseUpdate)

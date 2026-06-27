@@ -17,6 +17,9 @@ type PostFormData = {
   meta_keywords: string;
   reads: number;
   reads_per_day: number;
+  published_at: string;
+  has_toc: boolean;
+  faqs: { question: string; answer: string }[];
 };
 
 type PostFormProps = {
@@ -52,12 +55,37 @@ export default function PostForm({ initial, postId }: PostFormProps) {
     meta_keywords: initial?.meta_keywords || "",
     reads: initial?.reads ?? 0,
     reads_per_day: initial?.reads_per_day ?? 12,
+    published_at: initial?.published_at || "",
+    has_toc: initial?.has_toc ?? true,
+    faqs: initial?.faqs || [],
   });
+
+  const [faqJsonText, setFaqJsonText] = useState(JSON.stringify(initial?.faqs || [], null, 2));
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
     setError("");
+
+    let parsedFaqs = [];
+    try {
+      const trimmed = faqJsonText.trim();
+      if (trimmed) {
+        parsedFaqs = JSON.parse(trimmed);
+        if (!Array.isArray(parsedFaqs)) {
+          throw new Error("FAQs must be a JSON array: [{\"question\": \"...\", \"answer\": \"...\"}]");
+        }
+        for (const item of parsedFaqs) {
+          if (typeof item !== "object" || item === null || typeof item.question !== "string" || typeof item.answer !== "string") {
+            throw new Error("Each FAQ item must have a 'question' and 'answer' string field.");
+          }
+        }
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Invalid FAQs JSON format");
+      setLoading(false);
+      return;
+    }
 
     try {
       const url = postId ? `/api/posts/${postId}` : "/api/posts";
@@ -72,6 +100,8 @@ export default function PostForm({ initial, postId }: PostFormProps) {
           meta_title: form.meta_title || null,
           meta_description: form.meta_description || null,
           meta_keywords: form.meta_keywords || null,
+          published_at: form.published_at || null,
+          faqs: parsedFaqs,
         }),
       });
 
@@ -205,6 +235,63 @@ export default function PostForm({ initial, postId }: PostFormProps) {
             </p>
           </div>
         </div>
+      </div>
+
+      <div className="rounded-lg border border-border p-4">
+        <p className="mb-4 text-sm font-medium text-primary">Publication Options</p>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label className="mb-1.5 block text-sm font-medium">Published Date & Time</label>
+            <input
+              type="datetime-local"
+              className="input-field"
+              value={form.published_at ? new Date(form.published_at).toISOString().slice(0, 16) : ""}
+              onChange={(e) => {
+                const val = e.target.value;
+                setForm({ ...form, published_at: val ? new Date(val).toISOString() : "" });
+              }}
+            />
+            <p className="mt-1.5 text-xs text-muted-foreground">
+              Leave blank to set automatically when published.
+            </p>
+          </div>
+          <div className="flex flex-col justify-end pb-2">
+            <label className="flex items-center gap-2 text-sm font-medium">
+              <input
+                type="checkbox"
+                checked={form.has_toc}
+                onChange={(e) => setForm({ ...form, has_toc: e.target.checked })}
+                className="rounded"
+              />
+              Show Table of Contents
+            </label>
+            <p className="mt-1.5 text-xs text-muted-foreground">
+              Automatically builds a TOC from heading tags.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="rounded-lg border border-border p-4">
+        <label className="mb-1 block text-sm font-medium text-primary">FAQs (JSON format)</label>
+        <p className="mb-3 text-xs text-muted-foreground">
+          Enter FAQs as a JSON array of objects. Example:
+          <code className="block mt-1 p-2 bg-slate-50 border border-border rounded text-[10px] whitespace-pre font-mono">
+{`[
+  {
+    "question": "What is the best way to clean teeth?",
+    "answer": "Brush twice a day with fluoride toothpaste and floss daily."
+  }
+]`}
+          </code>
+        </p>
+        <textarea
+          rows={8}
+          className="textarea-field font-mono text-xs"
+          value={faqJsonText}
+          onChange={(e) => setFaqJsonText(e.target.value)}
+          placeholder="[]"
+        />
       </div>
 
       <div className="rounded-lg border border-border p-4">

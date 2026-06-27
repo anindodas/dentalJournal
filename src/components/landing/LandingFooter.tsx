@@ -32,6 +32,7 @@ export default function LandingFooter({ latestPosts = [] }: Props) {
                 <li><Link href="/about" className="hover:text-white">About</Link></li>
                 <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
                 <li><Link href="/write-for-us" className="hover:text-white">Write for Us</Link></li>
+                <li><Link href="/faq" className="hover:text-white">FAQ</Link></li>
               </ul>
             </div>
             <div>

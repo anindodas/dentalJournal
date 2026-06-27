@@ -1,14 +1,25 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, webPageJsonLd } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({ path: "/about" });
 }
 
 export default function AboutPage() {
+  const jsonLd = webPageJsonLd(
+    "/about",
+    "About Us | DentalJournal.online",
+    "Learn about DentalJournal.online — an independent blog offering dental care tips and hygienist advice."
+  );
+
   return (
-    <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-16">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-16">
       <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary">
         About us
       </p>
@@ -66,5 +77,6 @@ export default function AboutPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }

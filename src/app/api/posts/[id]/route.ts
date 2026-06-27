@@ -24,6 +24,9 @@ const postSchema = z.object({
   meta_keywords: z.string().optional().nullable(),
   reads: z.number().int().min(0).optional(),
   reads_per_day: z.number().int().min(0).optional(),
+  published_at: z.string().optional().nullable(),
+  has_toc: z.boolean().optional(),
+  faqs: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
 });
 
 export async function GET(

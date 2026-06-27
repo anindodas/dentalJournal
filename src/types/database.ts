@@ -16,6 +16,8 @@ export type Post = {
   reads_per_day: number;
   reads_started_at: string | null;
   published_at: string | null;
+  has_toc: boolean;
+  faqs: { question: string; answer: string }[];
   created_at: string;
   updated_at: string;
 };
@@ -88,6 +90,8 @@ export type Database = {
           reads_per_day?: number;
           reads_started_at?: string | null;
           published_at?: string | null;
+          has_toc?: boolean;
+          faqs?: { question: string; answer: string }[];
           updated_at?: string;
         };
         Update: Partial<Post>;

@@ -23,6 +23,9 @@ const postSchema = z.object({
   meta_keywords: z.string().optional().nullable(),
   reads: z.number().int().min(0).optional(),
   reads_per_day: z.number().int().min(0).optional(),
+  published_at: z.string().optional().nullable(),
+  has_toc: z.boolean().default(true),
+  faqs: z.array(z.object({ question: z.string(), answer: z.string() })).default([]),
 });
 
 export async function GET(request: NextRequest) {
@@ -76,6 +79,9 @@ export async function POST(request: NextRequest) {
       meta_keywords: data.meta_keywords,
       reads: data.reads,
       reads_per_day: data.reads_per_day,
+      published_at: data.published_at,
+      has_toc: data.has_toc,
+      faqs: data.faqs,
       slug,
     });
 

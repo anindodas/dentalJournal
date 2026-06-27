@@ -36,6 +36,9 @@ export default async function EditPostPage({ params }: Props) {
           meta_keywords: post.meta_keywords || "",
           reads: post.reads ?? 0,
           reads_per_day: post.reads_per_day ?? 12,
+          published_at: post.published_at || "",
+          has_toc: post.has_toc,
+          faqs: post.faqs,
         }}
       />
     </div>
