@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "DentalJournal.online",
   tagline: "Expert dental health articles for everyday smiles",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://dentaljournal.online",
+  url: "https://dentaljournal.online",
   email: "hello@dentaljournal.online",
   twitter: "@dentaljournal",
   locale: "en_US",
