@@ -114,7 +114,7 @@ export default async function DentalJournalLanding() {
       </section>
 
       <LogoGrid logos={featuredInLogos} label="Featured in" />
-      <LogoGrid logos={trustedByLogos} label="Trusted by" />
+      <LogoGrid logos={trustedByLogos} label="Trusted by" variant="marquee" />
 
       {/* Latest articles */}
       {latestPosts.length > 0 && (
