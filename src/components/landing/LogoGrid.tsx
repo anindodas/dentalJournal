@@ -16,7 +16,7 @@ export default function LogoGrid({
         {logos.map((logo) => (
           <div
             key={logo.name}
-            className="flex h-10 w-28 shrink-0 items-center justify-center sm:h-12 sm:w-36"
+            className="flex h-14 w-36 shrink-0 items-center justify-center sm:h-16 sm:w-44"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
