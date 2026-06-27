@@ -202,7 +202,7 @@ export default function PostForm({ initial, postId }: PostFormProps) {
         <p className="mb-4 text-sm font-medium text-primary">Reads</p>
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
-            <label className="mb-1.5 block text-sm font-medium">Starting read count</label>
+            <label className="mb-1.5 block text-sm font-medium">Current read count</label>
             <input
               type="number"
               min={0}
@@ -213,7 +213,7 @@ export default function PostForm({ initial, postId }: PostFormProps) {
               }
             />
             <p className="mt-1.5 text-xs text-muted-foreground">
-              Base number shown on the article. Grows automatically over time.
+              The number of reads shown on the article. If edited, it resets the daily growth to start from this new value.
             </p>
           </div>
           <div>
@@ -231,7 +231,7 @@ export default function PostForm({ initial, postId }: PostFormProps) {
               }
             />
             <p className="mt-1.5 text-xs text-muted-foreground">
-              Added each day after the count was last saved (default: 12/day).
+              The rate at which the count automatically grows each day (default: 12/day).
             </p>
           </div>
         </div>

@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getPostByIdAdmin } from "@/lib/queries";
 import PostForm from "@/components/admin/PostForm";
+import { getDisplayReads } from "@/lib/reads";
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -34,7 +35,7 @@ export default async function EditPostPage({ params }: Props) {
           meta_title: post.meta_title || "",
           meta_description: post.meta_description || "",
           meta_keywords: post.meta_keywords || "",
-          reads: post.reads ?? 0,
+          reads: getDisplayReads(post),
           reads_per_day: post.reads_per_day ?? 12,
           published_at: post.published_at || "",
           has_toc: post.has_toc,

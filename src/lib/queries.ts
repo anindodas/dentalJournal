@@ -1,5 +1,6 @@
 import { createSupabaseAdmin, createSupabaseClient } from "./supabase/client";
 import type { PageSeo, Post, ContactMessage, WriteForUsSubmission, User } from "@/types/database";
+import { getDisplayReads } from "./reads";
 
 export type PostInput = {
   title: string;
@@ -178,13 +179,34 @@ export async function updatePost(id: string, input: Partial<PostInput & { slug: 
 
   // Extract reads, has_toc, and faqs to only send them if they are supported
   const readsUpdate: Record<string, any> = {};
-  if (input.reads !== undefined) {
-    readsUpdate.reads = input.reads;
-    readsUpdate.reads_started_at = new Date().toISOString();
+  
+  if (existing) {
+    const currentDisplayReads = getDisplayReads(existing);
+    const rateChanged = input.reads_per_day !== undefined && input.reads_per_day !== existing.reads_per_day;
+    
+    if (rateChanged) {
+      readsUpdate.reads = input.reads !== undefined ? input.reads : currentDisplayReads;
+      readsUpdate.reads_per_day = input.reads_per_day;
+      readsUpdate.reads_started_at = new Date().toISOString();
+    } else {
+      if (input.reads_per_day !== undefined) {
+        readsUpdate.reads_per_day = input.reads_per_day;
+      }
+      if (input.reads !== undefined && input.reads !== currentDisplayReads) {
+        readsUpdate.reads = input.reads;
+        readsUpdate.reads_started_at = new Date().toISOString();
+      }
+    }
+  } else {
+    if (input.reads !== undefined) {
+      readsUpdate.reads = input.reads;
+      readsUpdate.reads_started_at = new Date().toISOString();
+    }
+    if (input.reads_per_day !== undefined) {
+      readsUpdate.reads_per_day = input.reads_per_day;
+    }
   }
-  if (input.reads_per_day !== undefined) {
-    readsUpdate.reads_per_day = input.reads_per_day;
-  }
+
   if (input.has_toc !== undefined) {
     readsUpdate.has_toc = input.has_toc;
   }
