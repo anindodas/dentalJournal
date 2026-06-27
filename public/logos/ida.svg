@@ -1,7 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" role="img" aria-label="IDA">
-  <circle cx="75" cy="30" r="16" fill="#FF6600"/>
-  <text x="75" y="36" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#fff">IDA</text>
-  <text x="100" y="24" font-family="Arial, Helvetica, sans-serif" font-size="7" font-weight="600" fill="#333">Indian</text>
-  <text x="100" y="32" font-family="Arial, Helvetica, sans-serif" font-size="7" font-weight="600" fill="#333">Dental</text>
-  <text x="100" y="40" font-family="Arial, Helvetica, sans-serif" font-size="7" font-weight="600" fill="#333">Association</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 64" role="img" aria-label="Indian Dental Association">
+  <rect width="260" height="64" fill="none"/>
+  <circle cx="32" cy="32" r="26" fill="currentColor" opacity="0.12"/>
+  <circle cx="32" cy="32" r="26" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+  <text x="32" y="38" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="800" fill="currentColor" letter-spacing="0.5">IDA</text>
+  <text x="70" y="26" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="currentColor" letter-spacing="0.3">Indian Dental</text>
+  <text x="70" y="44" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="currentColor" letter-spacing="0.3">Association</text>
 </svg>

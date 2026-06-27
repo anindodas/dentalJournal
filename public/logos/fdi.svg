@@ -1,7 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" role="img" aria-label="FDI">
-  <rect x="59" y="16" width="32" height="28" rx="3" fill="#009639"/>
-  <text x="75" y="36" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#fff">FDI</text>
-  <text x="100" y="24" font-family="Arial, Helvetica, sans-serif" font-size="7" font-weight="600" fill="#333">World</text>
-  <text x="100" y="32" font-family="Arial, Helvetica, sans-serif" font-size="7" font-weight="600" fill="#333">Dental</text>
-  <text x="100" y="40" font-family="Arial, Helvetica, sans-serif" font-size="7" font-weight="600" fill="#333">Federation</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 64" role="img" aria-label="FDI World Dental Federation">
+  <rect width="260" height="64" fill="none"/>
+  <circle cx="32" cy="32" r="26" fill="currentColor" opacity="0.12"/>
+  <circle cx="32" cy="32" r="26" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+  <text x="32" y="38" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="800" fill="currentColor" letter-spacing="0.5">FDI</text>
+  <text x="70" y="26" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="currentColor" letter-spacing="0.3">World Dental</text>
+  <text x="70" y="44" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="currentColor" letter-spacing="0.3">Federation</text>
 </svg>

@@ -4,7 +4,6 @@ import LandingNav from "@/components/landing/LandingNav";
 import LandingFooter from "@/components/landing/LandingFooter";
 import SubscribeForm from "@/components/landing/SubscribeForm";
 import PostCard from "@/components/PostCard";
-import LogoGrid from "@/components/landing/LogoGrid";
 import {
   featuredInLogos,
   trustedByLogos,
@@ -12,6 +11,7 @@ import {
 import { getFeaturedPosts, getPublishedPosts } from "@/lib/queries";
 import { formatDate } from "@/lib/utils";
 import { getDisplayReads } from "@/lib/reads";
+
 
 export default async function DentalJournalLanding2() {
   let latestPosts: Awaited<ReturnType<typeof getPublishedPosts>> = [];
@@ -124,19 +124,24 @@ export default async function DentalJournalLanding2() {
 
           </div>
 
-          {/* Attached "Featured In" Logo Grid */}
+          {/* Featured In strip */}
           <div className="mt-20 border-t border-foreground/10 pt-10 animate-fade-in-up animation-delay-300">
-            <p className="mb-6 text-center text-[10px] font-medium uppercase tracking-[0.32em] text-foreground/45">
-              Featured in
+            <p className="mb-8 text-center text-[10px] font-medium uppercase tracking-[0.36em] text-foreground/40">
+              As featured in
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 sm:gap-x-16 lg:gap-x-20 px-4">
+            <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:gap-x-14 lg:gap-x-16 px-4">
               {featuredInLogos.map((logo) => (
-                <div key={logo.name} className="h-6 w-24 shrink-0 flex items-center justify-center">
+                <div
+                  key={logo.name}
+                  className="shrink-0 flex items-center justify-center"
+                  style={{ height: "32px" }}
+                >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={logo.src}
                     alt={logo.name}
-                    className="max-h-full max-w-full object-contain opacity-40 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0"
+                    style={{ height: "32px", width: "auto", maxWidth: "140px" }}
+                    className="object-contain opacity-45 grayscale hover:opacity-90 hover:grayscale-0 transition-all duration-300"
                     loading="lazy"
                   />
                 </div>
@@ -147,8 +152,54 @@ export default async function DentalJournalLanding2() {
         </div>
       </section>
 
-      {/* Trusted By Grid */}
-      <LogoGrid logos={trustedByLogos} label="Trusted by" />
+      {/* Trusted By — clean badge grid */}
+      <section className="border-y border-foreground/8 bg-muted/20 py-14 sm:py-16">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-16">
+          <p className="mb-10 text-center text-[10px] font-medium uppercase tracking-[0.36em] text-foreground/40">
+            Trusted by leading dental organisations
+          </p>
+          {/* Top row: 4 logos */}
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-8 sm:gap-x-12">
+            {trustedByLogos.slice(0, 4).map((logo) => (
+              <div
+                key={logo.name}
+                className="shrink-0 flex items-center justify-center"
+                style={{ height: "52px" }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={logo.src}
+                  alt={logo.name}
+                  style={{ height: "52px", width: "auto", maxWidth: "220px" }}
+                  className="object-contain opacity-50 grayscale hover:opacity-95 hover:grayscale-0 transition-all duration-300"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+          {/* Bottom row: remaining logos centred */}
+          {trustedByLogos.length > 4 && (
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-8 sm:gap-x-12">
+              {trustedByLogos.slice(4).map((logo) => (
+                <div
+                  key={logo.name}
+                  className="shrink-0 flex items-center justify-center"
+                  style={{ height: "52px" }}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={logo.src}
+                    alt={logo.name}
+                    style={{ height: "52px", width: "auto", maxWidth: "220px" }}
+                    className="object-contain opacity-50 grayscale hover:opacity-95 hover:grayscale-0 transition-all duration-300"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
 
       {/* Readers' Recommendations Section */}
       <section className="bg-muted/40 py-20 sm:py-28 border-y border-foreground/5">

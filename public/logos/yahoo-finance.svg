@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 48" role="img" aria-label="Yahoo Finance">
-  <text x="65" y="28" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#6001D2">yahoo!</text>
-  <text x="65" y="44" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="600" fill="#333">finance</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" role="img" aria-label="Yahoo Finance">
+  <rect width="220" height="48" fill="none"/>
+  <text x="0" y="35" font-family="Arial,Helvetica,sans-serif" font-size="30" font-weight="800" fill="currentColor">yahoo!</text>
+  <text x="120" y="35" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="500" fill="currentColor" opacity="0.75">finance</text>
 </svg>
