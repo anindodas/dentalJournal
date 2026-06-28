@@ -6,7 +6,6 @@ import SubscribeForm from "@/components/landing/SubscribeForm";
 import PostCard from "@/components/PostCard";
 import {
   featuredInLogos,
-  trustedByLogos,
 } from "@/lib/landing-data";
 import { getFeaturedPosts, getPublishedPosts } from "@/lib/queries";
 import { formatDate } from "@/lib/utils";
@@ -152,31 +151,7 @@ export default async function DentalJournalLanding2() {
         </div>
       </section>
 
-      {/* Trusted By — clean badge grid */}
-      <section className="border-y border-foreground/8 bg-muted/20 py-14 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-16">
-          <p className="mb-10 text-center text-[10px] font-medium uppercase tracking-[0.36em] text-foreground/40">
-            Trusted by leading dental organisations
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-            {trustedByLogos.map((logo) => (
-              <div
-                key={logo.name}
-                className="flex items-center justify-center bg-card border border-foreground/5 hover:border-primary/20 hover:shadow-[0_8px_30px_rgba(0,0,0,0.02)] transition-all duration-300 rounded-2xl py-3 px-5 shrink-0 h-14 w-52 sm:w-56"
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={logo.src}
-                  alt={logo.name}
-                  style={{ height: "32px", width: "auto", maxWidth: "100%" }}
-                  className="object-contain opacity-50 grayscale hover:opacity-95 hover:grayscale-0 transition-all duration-300"
-                  loading="lazy"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* Readers' Recommendations Section */}
       <section className="bg-muted/40 py-20 sm:py-28 border-y border-foreground/5">
