@@ -154,50 +154,27 @@ export default async function DentalJournalLanding2() {
 
       {/* Trusted By — clean badge grid */}
       <section className="border-y border-foreground/8 bg-muted/20 py-14 sm:py-16">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-16">
           <p className="mb-10 text-center text-[10px] font-medium uppercase tracking-[0.36em] text-foreground/40">
             Trusted by leading dental organisations
           </p>
-          {/* Top row: 4 logos */}
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-8 sm:gap-x-12">
-            {trustedByLogos.slice(0, 4).map((logo) => (
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+            {trustedByLogos.map((logo) => (
               <div
                 key={logo.name}
-                className="shrink-0 flex items-center justify-center"
-                style={{ height: "52px" }}
+                className="flex items-center justify-center bg-card border border-foreground/5 hover:border-primary/20 hover:shadow-[0_8px_30px_rgba(0,0,0,0.02)] transition-all duration-300 rounded-2xl py-3 px-5 shrink-0 h-14 w-52 sm:w-56"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={logo.src}
                   alt={logo.name}
-                  style={{ height: "52px", width: "auto", maxWidth: "220px" }}
+                  style={{ height: "32px", width: "auto", maxWidth: "100%" }}
                   className="object-contain opacity-50 grayscale hover:opacity-95 hover:grayscale-0 transition-all duration-300"
                   loading="lazy"
                 />
               </div>
             ))}
           </div>
-          {/* Bottom row: remaining logos centred */}
-          {trustedByLogos.length > 4 && (
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-8 sm:gap-x-12">
-              {trustedByLogos.slice(4).map((logo) => (
-                <div
-                  key={logo.name}
-                  className="shrink-0 flex items-center justify-center"
-                  style={{ height: "52px" }}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={logo.src}
-                    alt={logo.name}
-                    style={{ height: "52px", width: "auto", maxWidth: "220px" }}
-                    className="object-contain opacity-50 grayscale hover:opacity-95 hover:grayscale-0 transition-all duration-300"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-            </div>
-          )}
         </div>
       </section>
 
