@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { X, Check } from "lucide-react";
 
 type Props = {
@@ -48,8 +49,8 @@ export default function SubscribeModal({ isOpen, onClose }: Props) {
     }
   }
 
-  return (
-    <div className="fixed inset-0 z-[100] overflow-y-auto">
+  return createPortal(
+    <div className="fixed inset-0 z-[9999] overflow-y-auto">
       {/* Backdrop */}
       <div 
         className="fixed inset-0 bg-[#0c0f0a]/50 backdrop-blur-sm transition-opacity duration-300"
@@ -143,6 +144,7 @@ export default function SubscribeModal({ isOpen, onClose }: Props) {
 
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
