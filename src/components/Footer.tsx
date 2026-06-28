@@ -54,10 +54,10 @@ export default function Footer() {
                 Contact
               </p>
               <a
-                href="mailto:hello@dentaljournal.online"
+                href="mailto:contact@dentaljournal.online"
                 className="text-sm text-white/55 hover:text-white"
               >
-                hello@dentaljournal.online
+                contact@dentaljournal.online
               </a>
             </div>
           </div>

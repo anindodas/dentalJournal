@@ -41,8 +41,8 @@ export default function LandingFooter({ latestPosts = [] }: Props) {
               </p>
               <ul className="space-y-2.5 text-sm text-white/55">
                 <li>
-                  <a href="mailto:hello@dentaljournal.online" className="hover:text-white">
-                    hello@dentaljournal.online
+                  <a href="mailto:contact@dentaljournal.online" className="hover:text-white">
+                    contact@dentaljournal.online
                   </a>
                 </li>
               </ul>

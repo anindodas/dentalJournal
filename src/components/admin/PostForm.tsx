@@ -20,6 +20,7 @@ type PostFormData = {
   published_at: string;
   has_toc: boolean;
   faqs: { question: string; answer: string }[];
+  slug: string;
 };
 
 type PostFormProps = {
@@ -58,6 +59,7 @@ export default function PostForm({ initial, postId }: PostFormProps) {
     published_at: initial?.published_at || "",
     has_toc: initial?.has_toc ?? true,
     faqs: initial?.faqs || [],
+    slug: initial?.slug || "",
   });
 
   const [faqJsonText, setFaqJsonText] = useState(JSON.stringify(initial?.faqs || [], null, 2));
@@ -101,6 +103,7 @@ export default function PostForm({ initial, postId }: PostFormProps) {
           meta_description: form.meta_description || null,
           meta_keywords: form.meta_keywords || null,
           published_at: form.published_at || null,
+          slug: form.slug.trim() || null,
           faqs: parsedFaqs,
         }),
       });
@@ -135,6 +138,24 @@ export default function PostForm({ initial, postId }: PostFormProps) {
           value={form.title}
           onChange={(e) => setForm({ ...form, title: e.target.value })}
         />
+      </div>
+
+      <div>
+        <label className="mb-1.5 block text-sm font-medium">Slug (optional)</label>
+        <input
+          className="input-field"
+          value={form.slug}
+          onChange={(e) =>
+            setForm({
+              ...form,
+              slug: e.target.value.toLowerCase().replace(/[^a-z0-9-_]/g, "-").replace(/-+/g, "-"),
+            })
+          }
+          placeholder="e.g. customized-url-slug"
+        />
+        <p className="mt-1 text-xs text-muted-foreground">
+          Optional. If left blank, it will be automatically generated from the title.
+        </p>
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2">

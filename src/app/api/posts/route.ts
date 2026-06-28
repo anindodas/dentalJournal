@@ -26,6 +26,7 @@ const postSchema = z.object({
   published_at: z.string().optional().nullable(),
   has_toc: z.boolean().default(true),
   faqs: z.array(z.object({ question: z.string(), answer: z.string() })).default([]),
+  slug: z.string().optional().nullable(),
 });
 
 export async function GET(request: NextRequest) {
@@ -59,7 +60,7 @@ export async function POST(request: NextRequest) {
     const data = postSchema.parse(body);
     const coverImage = data.cover_image ?? data.coverImage ?? null;
 
-    let slug = slugify(data.title);
+    let slug = data.slug ? slugify(data.slug) : slugify(data.title);
     const existing = await getAllPostsAdmin();
     if (existing.some((p) => p.slug === slug)) {
       slug = `${slug}-${Date.now()}`;

@@ -27,6 +27,7 @@ const postSchema = z.object({
   published_at: z.string().optional().nullable(),
   has_toc: z.boolean().optional(),
   faqs: z.array(z.object({ question: z.string(), answer: z.string() })).optional(),
+  slug: z.string().optional().nullable(),
 });
 
 export async function GET(
@@ -73,13 +74,16 @@ export async function PUT(
       return NextResponse.json({ error: "Not found" }, { status: 404 });
     }
 
-    const update: Parameters<typeof updatePost>[1] = { ...data };
+    const { slug, ...otherData } = data;
+    const update: Parameters<typeof updatePost>[1] = { ...otherData };
     if (data.cover_image !== undefined || data.coverImage !== undefined) {
       update.cover_image = data.cover_image ?? data.coverImage ?? null;
     }
     delete (update as Record<string, unknown>).coverImage;
 
-    if (data.title && data.title !== existing.title) {
+    if (slug !== undefined) {
+      update.slug = slug ? slugify(slug) : (data.title ? slugify(data.title) : slugify(existing.title));
+    } else if (data.title && data.title !== existing.title) {
       update.slug = slugify(data.title);
     }
 
